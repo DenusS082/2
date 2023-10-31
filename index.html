@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Годинник</title>
+</head>
+<body>
+    <input type="text" id="timeDisplay" size="10">
+    <script>
+        function formatTimeValue(value) {
+            return value < 10 ? "0" + value : value.toString();
+        }
+
+        function updateTime() {
+            const currentTime = new Date();
+            const hours = formatTimeValue(currentTime.getHours());
+            const minutes = formatTimeValue(currentTime.getMinutes());
+            const seconds = formatTimeValue(currentTime.getSeconds());
+
+            document.getElementById('timeDisplay').value = `${hours}:${minutes}:${seconds}`;
+        }
+        updateTime(); 
+        setInterval(updateTime, 1000); 
+    </script>
+</body>
+</html>
